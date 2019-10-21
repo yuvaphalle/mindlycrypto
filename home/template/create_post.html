@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+
+
+             <div class="form-group">
+                {{ form.currency.label(class="form-control-label") }}
+                {% if form.currency.errors %}
+                    {{ form.currency(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.currency.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.currency(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+ </div>
+             <div class="form-group" onfocus="val()">
+                {{ form.quantity.label(class="form-control-label")  }}
+                {% if form.quantity.errors %}
+                    {{ form.quantity(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.quantity.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.quantity(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+
+
+
+
+
+<input type="checkbox",  required, onfocus="val()" id= {{ form.quantity }}  I Agree the terms and condition
+
+<br>
+
+            <script>
+function val() {
+    var x = document.getElementById("currency").value;
+    var quan = parseFloat(document.getElementById("quantity").value);
+    var total;
+    if(x == "BitCoin"){
+
+
+        var bitcoin = parseFloat({{ price2 }});
+
+        total = bitcoin * quan;
+
+       document.getElementById("content").innerHTML =total;
+
+       // document.getElementById("content").value = total + " Bitcoin is " +total + "$";
+    }
+    else if(x == "Ethereum"){
+
+
+        var eth = parseFloat({{ price }});
+
+        total = eth * quan;
+
+       document.getElementById("content").innerHTML = total ;
+
+         //  document.getElementById("content").value = total;
+
+    }
+    else if(x == "Ripple"){
+
+        var ripple = parseFloat({{ price3 }});
+
+        total = ripple * quan;
+
+       document.getElementById("content").innerHTML = total ;
+
+             // document.getElementById("content").value = total;
+
+    }
+
+}
+</script>
+<br>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+
+
+
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+         <meta http-equiv="refresh" content="5">
+        {% if post.author == current_user %}
+
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+
+                <a class="mr-2" href="/post/{{ post.id }}">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="/post/{{ post.id }}">{{ post.title }}</a></h2>
+            <!--<p class="article-content">{{ post.r }}</p>-->
+          </div>
+
+
+        </article>
+        {% endif %}
+
+
+
+
+    {% endfor %}
+
+
+{% endblock content %}

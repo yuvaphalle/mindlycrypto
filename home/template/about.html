@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for  post in posts %}
+    
+    <h1>About</h1>
+
+    <h1>{{ post.title}}</h1>
+    <p>{{post.author}}</p>
+    <!--<p>{{    print(' the price is ' + r.json()['bpi']['USD']['rate']) }}</p>-->
+
+
+
+    {% endfor %}
+{% endblock content %}
