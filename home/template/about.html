@@ -1,5 +1,31 @@
 {% extends "layout.html" %}
 {% block content %}
+
+
+<div class="article-metadata" >
+                         <center><b> ABOUT</b> <br>
+We practice modern technologies to build high availability services
+          </div>
+<br><br><br>
+
+ <article class="media content-section"  >
+
+     <b>TEAM</b><br>
+Our team has extensive knowledge in building and operating software in various fields like banking, finance, domain name industry. We are pioneering in Artificial Intelligence and robotics.
+<br><br><br>
+
+ </article>
+
+ <article class="media content-section"  >
+     <b>TECHNOLOGY </b><br>
+Each project is unique and there is no one-size-fits-all solution, but we are most experienced in enterprise grade Java and Ruby.
+<br><br>
+ </article>
+
+ <article class="media content-section"  >
+<b>MAINTENANCE & SUPPORT </b><br>
+Mission critical services are operated by us 24/7.
+ </article>
     {% for  post in posts %}
     
     <h1>About</h1>
@@ -7,7 +33,6 @@
     <h1>{{ post.title}}</h1>
     <p>{{post.author}}</p>
     <!--<p>{{    print(' the price is ' + r.json()['bpi']['USD']['rate']) }}</p>-->
-
 
 
     {% endfor %}
