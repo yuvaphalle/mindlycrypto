@@ -1,7 +1,7 @@
-"# mindlycrypto" 
+"# Crypto Portfolio" 
 
 
 #Use cmd to run the project#
 
-
-*python run.py*
+`pip3 install -r requirements.txt`
+`python3 run.py`
