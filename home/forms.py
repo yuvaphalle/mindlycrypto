@@ -64,7 +64,7 @@ class PostForm(FlaskForm):
     currency = SelectField('Currency',validators=[DataRequired()],choices=[('Ethereum', 'ETH'), ('BitCoin', 'BTC'), ('Ripple', 'XRP')],)
     quantity = IntegerField('Quantity',validators=[DataRequired()])
 
-    submit = SubmitField('Post')
+    submit = SubmitField('Purchase')
 
 class RequestResetForm(FlaskForm):
     try:

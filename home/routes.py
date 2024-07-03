@@ -215,7 +215,7 @@ def new_post():
                     quantity=form.quantity.data)
         db.session.add(post)
         db.session.commit()
-        flash('Your post has been created!', 'success')
+        flash('Pruchase done!', 'success')
         return redirect(url_for('home'))
     return render_template('create_post.html', title='New Purchase',
                            form=form, legend='Purchase', price=price, price2=price2, price3=price3)
@@ -278,15 +278,15 @@ def update_post(post_id):
         post.currency = form.currency.data
         post.quantity = form.quantity.data
         db.session.commit()
-        flash('Your post has been updated!', 'success')
+        flash('Your purchase has been updated!', 'success')
         return redirect(url_for('post', post_id=post.id))
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
         form.currency.data = post.currency
         form.quantity.data = post.quantity
-    return render_template('create_post.html', title='Update Post',
-                           form=form, legend='Update Post',  price=price, price2=price2, price3=price3)
+    return render_template('create_post.html', title='Update Purchase',
+                           form=form, legend='Update Purchase',  price=price, price2=price2, price3=price3)
 
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
@@ -315,7 +315,7 @@ def delete_post(post_id):
         abort(403)
     db.session.delete(post)
     db.session.commit()
-    flash('Your post has been deleted!', 'success')
+    flash('Your purchase has been deleted!', 'success')
     return redirect(url_for('home'))
 
 
